@@ -1,0 +1,29 @@
+{
+  "name": "web-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayanzaman/web-parser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jayanzaman/web-parser/issues"
+  },
+  "homepage": "https://github.com/jayanzaman/web-parser#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.1",
+    "method-override": "^2.3.7",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.4",
+    "pg-promise": "^5.5.6",
+    "request": "^2.79.0"
+  }
+}
