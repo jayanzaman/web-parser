@@ -4,10 +4,10 @@ const request = require('request');
 const cheerio = require('cheerio');
 const app     = express();
 
-app.get('/scrape', function(req, res){
+app.get('/news.google', function(req, res){
 
   // The URL we will scrape from - in our example John Wick 2.
-  url = 'http://www.imdb.com/title/tt4425200/';
+  url = 'https://news.google.com/';
 
     // The structure of our request call
     // The first parameter is our URL
@@ -21,44 +21,38 @@ app.get('/scrape', function(req, res){
 
             var $ = cheerio.load(html);
 
-            var title, release, rating;
-            var json = { title : "", release : "", rating : ""};
+            var title, article_num;
+            var newsArr = [];
+            var json = { title : "", article_num : ""};
+            var count = 0;
 
-            $('.title_wrapper').filter(function(){
+            $('.esc-lead-article-title').filter(function(){
 
                 var data = $(this);
-
                 title = data.children().first().text();
                 console.log("title : "+title)
-
                 json.title = title;
+                article_num = count;
+                json.article_num = article_num;
 
+                console.log(count)
+                console.log(json)
+                count ++;
+                newsArr.push(json)
             })
-            $('#titleYear').filter(function(){
-                var data = $(this);
-
-                release = data.children().first().text();
-                console.log("release : "+ release)
-                json.release = release;
-            })
+              console.log(newsArr)
 
 
-        $('.ratingValue').filter(function(){
-                var data = $(this);
-                rating = data.children().first().text();
-                console.log(rating)
-                json.rating = rating;
-        })
       }
 
-  fs.writeFile('output.json', JSON.stringify(json, null, 4), function(err){
+  fs.writeFile('output.json', JSON.stringify(newsArr, null, 4), function(err){
 
       console.log('File successfully written! - Check your project directory for the output.json file');
 
 
   })
 
-      res.send(JSON.stringify(json, null, 4))
+      res.send(JSON.stringify(newsArr, null, 4))
 
     })
 // To write to the system we will use the built in 'fs' library.
