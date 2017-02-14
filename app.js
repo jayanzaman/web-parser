@@ -55,9 +55,10 @@ app.get('/scrape', function(req, res){
 
       console.log('File successfully written! - Check your project directory for the output.json file');
 
+
   })
 
-
+      res.send(JSON.stringify(json, null, 4))
 
     })
 // To write to the system we will use the built in 'fs' library.
@@ -67,12 +68,12 @@ app.get('/scrape', function(req, res){
 // Parameter 3 :  callback function - a callback function to let us know the status of our function
 
 
-      res.send('Check your console!')
+
 
 })
 
 app.listen('8888')
 
-console.log('Magic happens on port 8888');
+console.log('Listening in port 8888');
 
 exports = module.exports = app;
