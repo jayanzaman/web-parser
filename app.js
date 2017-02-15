@@ -29,16 +29,15 @@ app.get('/news.google', function(req, res){
             $('.esc-lead-article-title').filter(function(){
 
                 var data = $(this);
-                title = data.children().first().text();
-                console.log("title : "+title)
-                json.title = title;
-                article_num = count;
-                json.article_num = article_num;
+                newsArr.push(data.children().first().text())
+                // title = data.children().first().text();
+                // json.title = title;
+                // article_num = count;
+                // json.article_num = article_num;
+                // console.log(json)
+                // count ++;
+                // newsArr.push(json)
 
-                console.log(count)
-                console.log(json)
-                count ++;
-                newsArr.push(json)
             })
               console.log(newsArr)
 
