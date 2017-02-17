@@ -60,9 +60,6 @@ app.get('/news.google', function(req, res){
 // Parameter 2 :  JSON.stringify(json, null, 4) - the data to write, here we do an extra step by calling JSON.stringify to make our JSON easier to read
 // Parameter 3 :  callback function - a callback function to let us know the status of our function
 
-
-
-
 })
 
 app.listen('8888')
